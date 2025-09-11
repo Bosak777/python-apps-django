@@ -23,8 +23,18 @@
     {% if result is not None %}
         <h2>結果: {{ result }}</h2>
     {% endif %}
-    令和何年ですかツール
-    令和何年ですか<input type="number" name="'year" required>
     
+<form method="post">
+    {% csrf_token %}
+    <p>令和何年ですかツール</p>
+    令和何年ですか <input type="number" name="year" required>
+    <button type="submit">計算</button>
+</form>
+
+{% if kei is not None %}
+    <h2>結果: {{ kei }}</h2>
+{% endif %}
+
+
 </body>
 </html>
