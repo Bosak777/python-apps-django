@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+body {
+    background-image: url("../images/インデックス.png");
+}
+
+.header {
+    text-align: center;
+}
+
+#icon {
+    border-radius: 50%;
+    width: 300px;
+    height: auto;
+}
+
+.introduction {
+    background: linear-gradient(135deg, #74ebd5, #9face6);
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 50px;
+    margin-bottom: 100px;
+}
+
+.name {
+    max-width: 600px;
+}
+
+.name-text {
+    font-size: 28px;
+}
+
+.hobby {
+    text-align: center;
+    background-color: #FFF9E6;
+    margin-bottom: 100px;
+}
+
+.card-group {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 640px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card-imaframe img {
+    width: 100%;
+    height: auto;
+}
+
+.card {
+    flex: 0 0 calc(50% - 10px);
+    background-image: url("../images/background.jpeg");
+}
+
+.goal {
+    background-color: #fbfaf7;
+    margin-bottom: 20px;
+}
