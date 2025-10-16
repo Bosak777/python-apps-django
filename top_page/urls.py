@@ -1,6 +1,7 @@
+# 例: urls.py
 from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('index/', views.reiwa_year, name="reiwa_year"),
+    path('index', views.index, name='index'),
 ]

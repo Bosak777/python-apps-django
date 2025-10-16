@@ -41,6 +41,10 @@ INSTALLED_APPS = [
     'work05',
     'work06',
     'portfolio',
+    'work07',
+    'top_page',
+    'work08',
+    'work09',
 ]
 
 MIDDLEWARE = [

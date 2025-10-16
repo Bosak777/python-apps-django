@@ -9,14 +9,13 @@
 
 # Create your views here.
 from django.shortcuts import render
+import random
 
 
-def reiwa_year(request):
-    kei = None
+def omikuji(request):
+    unda = None
     if request.method == "POST":
-        year = request.POST.get("year")  # 1回だけでOK
-        if year:  # 値が入っていれば処理
-            year = int(year)
-            kei = year + 2018
+        choices = ['大吉', '中吉', '小吉', '吉', '末吉', '凶', '大凶',]
+        unda = random.choice(choices)
 
-    return render(request, "work06/index.html", {"result": kei})
+    return render(request, "work07/index.html", {"result": unda})

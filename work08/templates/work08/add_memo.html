@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>メモ帳アプリ</title>
+    <link rel="stylesheet" href="{% static 'work08/style.css' %}">
+</head>
+<body>
+    <h1>メモ帳ー編集</h1>
+    <h3><button type="submit" id="memo_Btn">
+        <a href="{% url 'memo' %}">メモ帳一覧に戻る</a>
+    </button></h3>
+    <h2>編集</h2>
+    <form method="POST" action="{% url 'add_memo' %}">
+        {% csrf_token %}
+        <label>タイトル:</label>
+        <input type="text" name="title"><br><br>
+        <label>内容:</label>
+        <textarea name="content"></textarea><br>
+        <button type="submit">保存</button>
+    </form>
+</body>
+</html>

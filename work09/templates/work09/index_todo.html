@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>TODOアプリ</title>
+    <link rel="stylesheet" href="{% static 'work09/style.css' %}">
+</head>
+<body>
+    <h1>新しいタスクを追加</h1>
+    タスク名:
+    期限日時:
+    <button type="submit">登録</button>
+    <h2>TODOリスト一覧</h2>
+    <ul>
+    {% for memo in memos %}
+        <li>編集{{ memo.title }}</li>
+    {% empty %}
+        <li>まだメモがありません</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

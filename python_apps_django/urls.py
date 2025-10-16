@@ -22,4 +22,11 @@ urlpatterns = [
     path('', include('work05.urls')),
     path('work06/', include('work06.urls')),
     path('portfolio/', include('portfolio.urls')),
+    path('work07/', include('work07.urls')),
+    path('top_page/', include('top_page.urls')),
+    path('work08/', include('work08.urls')),
+    path('work09/', include('work09.urls')),
+
+
+
 ]
