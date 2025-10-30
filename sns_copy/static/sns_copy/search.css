@@ -238,6 +238,7 @@ h1 {
 .sidebar_li {
   list-style-type: none;
   margin: 100px 0;
+  color: #000;
 }
 
 .sidebar_li a {
@@ -245,7 +246,7 @@ h1 {
 }
 
 .sidebar_li a:hover {
-  background-color: #d3d3d3;
+  background-color: #333;
   border-radius: 40px;
 }
 
