@@ -4,20 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <title>TODOアプリ</title>
+    <link rel="resetsheet" href="{% static 'work09/reset.css' %}">
     <link rel="stylesheet" href="{% static 'work09/style.css' %}">
 </head>
 <body>
     <h1>新しいタスクを追加</h1>
-    タスク名:
-    期限日時:
-    <button type="submit">登録</button>
+    <form method="POST">
+        {% csrf_token %}
+        タスク名:<input type="text" name="task">
+        期限日時:<input type="date" name="日付">
+        <button type="submit">登録</button>
+    </form>
     <h2>TODOリスト一覧</h2>
-    <ul>
-    {% for memo in memos %}
-        <li>編集{{ memo.title }}</li>
-    {% empty %}
-        <li>まだメモがありません</li>
-    {% endfor %}
+    <p>
+        表示:
+        全て
+    </p>
+
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>タスク名</th>
+            <th>期限</th>
+            <th>登録日時</th>
+        </tr>
+        {% for task in tasks %}
+        <tr>
+            <td>{{task.task_name}}</td>
+            <td>{{task.deadline}}</td>
+            <td>{{task.entry}}</td>
+        </tr>
+        {% empty %}
+            <tr><td colspan="3">まだタスクがありません。</td></tr>
+        {% endfor %}
+    </table>
     </ul>
 </body>
 </html>

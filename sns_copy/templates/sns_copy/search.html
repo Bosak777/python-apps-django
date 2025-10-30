@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>検索ページ</title>
+  <link rel="stylesheet" href="{% static 'sns_copy/reset.css' %}">
+  <link rel="stylesheet" href="{% static 'sns_copy/search.css' %}">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="sidebar_left">
+      <h1>Photos</h1>
+      <div class="sidebar_nav">
+        <nav>
+          <ul>
+            <li class="sidebar_li"><a href="{% url 'home' %}">ホーム</a></li>
+            <li class="sidebar_li"><a href="{% url 'search' %}">検索</a></li>
+            <li class="sidebar_li"><a href="{% url 'notice' %}">通知</a></li>
+            <li class="sidebar_li"><a href="#">プロフィール</a></li>
+            <li class="sidebar_li"><a href="#">設定</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="page">
+      <div class="search_card">
+        <!-- 検索バー -->
+        <div class="search_box">
+          <input type="text" placeholder="検索">
+          <button class="search_icon">🔍</button>
+        </div>
+
+        <!-- 検索履歴 -->
+        <div class="search_history">
+          <p class="history_title">検索履歴</p>
+          <ul>
+            <li><span>nnnnnnnnnn</span><span class="delete">✖</span></li>
+            <li><span>nnnnnnnnn</span><span class="delete">✖</span></li>
+            <li><span>nnnnnnnn</span><span class="delete">✖</span></li>
+          </ul>
+        </div>
+
+        <hr>
+
+        <!-- あなたへのおすすめ -->
+        <div class="recommend">
+          <p class="recommend_title">あなたへのおすすめ</p>
+
+          <div class="user_item">
+            <div class="user_icon">アイコン</div>
+            <div class="user_name">名前</div>
+            <button class="follow_btn" onclick="toggleFollow(this)">フォロー</button>
+          </div>
+
+          <div class="user_item">
+            <div class="user_icon">アイコン</div>
+            <div class="user_name">名前</div>
+            <button class="follow_btn" onclick="toggleFollow(this)">フォロー</button>
+          </div>
+
+          <div class="user_item">
+            <div class="user_icon">アイコン</div>
+            <div class="user_name">名前</div>
+            <button class="follow_btn" onclick="toggleFollow(this)">フォロー</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function toggleFollow(btn) {
+        if (btn.innerText === "フォロー") {
+          btn.innerText = "フォロー中";
+          btn.style.backgroundColor = "#ccc";
+          btn.style.color = "#000";
+        } else {
+          btn.innerText = "フォロー";
+          btn.style.backgroundColor = "#000";
+          btn.style.color = "#fff";
+        }
+      }
+    </script>
+    <div class="sidebar_right">
+      <p class="odai_txt">本日のお題</p>
+      <div class="odai">
+        <p>今日の晩御飯</p>
+      </div>
+      <div class="btn_group">
+        <a href="#" class="tweet_btn">お題を投稿</a>
+        <a href="#" class="tweet_btn">今日の思い出を投稿</a>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

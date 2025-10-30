@@ -1,0 +1,216 @@
+/* 全体の背景設定 */
+body {
+  background-color: #ffff;
+  font-family: "Hiragino Sans", "Meiryo", sans-serif;
+  height: 100%;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+/* ページ中央配置 */
+.page {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  width: 100%;
+}
+
+/* 通知カード本体（ホーム中央エリアに合わせた幅） */
+.notice_card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: calc(100vw - 600px); 
+  max-width: 700px;            
+  min-width: 600px;          
+  padding: 40px 60px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* 最新通知（カード上部のテキスト） */
+.latest_notice {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* 区切り線 */
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  width: 100%;
+  margin: 15px 0 25px;
+}
+
+/* 通知タイトル */
+.notice_card h2 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+/* 通知リスト */
+.notice_card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid #ccc;
+}
+
+/* 通知項目 */
+.notice_card li {
+  font-size: 18px;
+  color: #333;
+  padding: 12px 0;
+  border-bottom: 1px solid #ccc;
+  text-align: left;          /* ✅ 左寄せで自然に */
+  margin-left: 20px;         /* ✅ 左に余白を足して整える */
+}
+
+
+
+
+
+
+/* サイドの投稿とホーム検索 */
+.container {
+  display: flex;
+  height: 100vh;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.sidebar_left {
+  width: 450px;
+  height: 100%;
+  /* background-color: yellow; */
+  border-right: 1px solid #d3d3d3;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+nav ul {
+  padding: 0;
+  margin: 0;
+}
+
+
+.sidebar_right {
+  width: 450px;
+  height: 100%;
+  /* background-color: lightblue; */
+  border-left: 1px solid #d3d3d3;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+}
+
+/* ここが真ん中 */
+.center {
+  justify-content: center;
+  flex: 1;
+  /* background-color: rgb(234, 22, 22); */
+  overflow-y: auto;
+  z-index: 1;
+}
+
+.filter{
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 15px 20px;
+  position: sticky;
+  /* position: fixed; */
+  top: 0;
+  background-color: #fff;
+  margin: 10px;
+}
+
+h1 {
+  font-size: 20px;
+}
+
+
+.sidebar_nav {
+  list-style-type: none;
+  font-size: 32px;
+  margin: 10px 2px;
+  display: flex;
+  flex-direction: scroll;
+}
+
+.sidebar_li {
+  list-style-type: none;
+  margin: 100px 0;
+}
+
+.sidebar_li a {
+  padding: 10px 20px;
+}
+
+.sidebar_li a:hover {
+  background-color: #d3d3d3;
+  border-radius: 40px;
+}
+
+.odai_txt {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  margin: 40px 0;
+}
+
+.odai {
+  display: inline-block; /* コンテンツ幅に縮む */
+  font-size: 24px;
+  padding: 65px 60px;
+  background-color: #fbf7f7;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  text-align: center; /* 内側のテキストも中央 */
+}
+
+.btn_group {
+  margin-top: 250px;
+  border-top: 1px solid #d3d3d3;
+}
+
+.tweet_btn {
+  padding: 10px 20px;
+  margin: 30px 0;
+  font-size: 24px;
+  display: inline-block;
+  background-color: #000;
+  color: #fff;
+  border-radius: 20px;
+}
+
+.tweet_btn:hover {
+  background-color: #555;
+}
+
+/* メイン */
+.filter {
+  display: flex;
+  justify-content: center; /* 均等配置ではなく中央寄せでも０K */
+  font-size: 32px;
+  width: 100%;
+  border-bottom: 1px solid #d3d3d3;
+  z-index: 1000;
+}
+
+.filter a {
+  padding: 5px 200px;
+  text-decoration: none;
+  color: black;
+
+}
+
+.filter .follow_btn {
+  border-left: 2px solid #d3d3d3; /* 👈左に線を追加 */
+}
+

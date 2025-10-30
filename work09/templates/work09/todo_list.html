@@ -9,10 +9,10 @@
 <body>
     <h1>タスクの編集</h1>
     <h3><button type="submit" id="memo_Btn">
-        <a href="{% url 'inde_todo' %}">TODOリスト一覧に戻る</a>
+        <a href="{% url 'index_todo' %}">TODOリスト一覧に戻る</a>
     </button></h3>
     <h2>編集</h2>
-    <form method="POST" action="{% url 'todo_list' %}">
+    <form method="POST">
         {% csrf_token %}
         <label>タイトル名:</label>
         <input type="text" name="title"><br><br>

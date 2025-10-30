@@ -1,7 +1,25 @@
 # python-apps-django
 ## サーバーの起動
 
-'python manage.py runserver'
+python manage.py runserver
+mysqlログイン
+mysql -u root -p
+アプリをコードで追加
+python manage.py startapp ここには自分の作りたいプロジェクトの名前
+データベース作成
+create database データベース名;
+データベースを見る
+show databases;
+作成したデータベースを使用し続ける
+use データベース名
+テーブルを作成
+create table テーブル名(カラム_1 カラム_1のデータ型,カラム_2の名前, カラム_2のデータ型)
+作成したテーブルを確認
+show tables;
+テーブルの中身を確認
+describe テーブル名
+
+
 
 from django.contrib import admin
 from django.urls import path, include

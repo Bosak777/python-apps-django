@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'top_page',
     'work08',
     'work09',
+    # 'sns',
+    'sns_copy',
 ]
 
 MIDDLEWARE = [

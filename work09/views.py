@@ -1,63 +1,53 @@
-# from django.http import HttpResponse
-# from django.shortcuts import render
-
-
-# def index(request):
-#     return render(request, "work05_1/index.html")
-# def index(request):
-#     return HttpResponse(request, "work05_1/index.html")
-
-# Create your views here.
+from django.shortcuts import render, redirect
+from .models import Memo  # モデル名に合わせてください
 import mysql.connector
-from django.shortcuts import render
-# from .models import Memo
+from datetime import datetime
 
 
-def index_todo(request):
+def index(request):
+    filter_option = request.GET.get('filter', 'all')
+
+    if filter_option == 'completed':
+        memos = Memo.objects.filter(is_done=True)
+    elif filter_option == 'uncompleted':
+        memos = Memo.objects.filter(is_done=False)
+    else:
+        memos = Memo.objects.all()
+
+    return render(request, 'work09/index_todo.html', {
+        'memos': memos, 'filter_option': filter_option
+        })
+
+
+def todo_task(request):
     conn = mysql.connector.connect(
         host='localhost',
         user='root',
         password='bosaklong',
-        database='work08'
+        database='work09'
     )
     cursor = conn.cursor(dictionary=True)
+    if request.method == 'POST':
+        title = request.POST.get('title')  # タスク名
+        deadline = request.POST.get('deadline')  # 期限
+        entyr_time = datetime.now()  # 登録日時
 
-    # メモタイトルを取得
-    cursor.execute("select id, title from memo order by id desc")
-    memos = cursor.fetchall()
-
-    print(memos)
-
+        if title and deadline:
+            cursor.execute(
+                'insert into todo (task_name, deadline, entry) values('
+                '%s, %s, %s)',
+                (title, deadline, entyr_time)
+            )
+            conn.commit()
+            cursor.close()
+            conn.close()
+            return redirect('index_todo')  # url名がindex_todoならここもOK
+    cursor.execute('select * from todo order by entry desc')
+    todo_list = cursor.fetchall()
     cursor.close()
     conn.close()
-    # index_top.hmtlにデータを渡す
-    return render(request, 'work09/index_todo.html', {"memos": memos})
 
-
-def todo_list(request):
-    result = None
-    if request.method == "POST":
-        print("受信しました")
-        title = request.POST.get("title")
-        content = request.POST.get("content")
-
-        conn = mysql.connector.connect(
-            host='localhost',
-            user='root',
-            password='bosaklong',
-            database='work08'
-        )
-        # カーソル作成
-        cursor = conn.cursor()
-        # データを挿入
-        query = 'insert into memo (title, content) values (%s, %s)'
-        cursor.execute(query, (title, content))
-        conn.commit()
-        cursor.close()
-        conn.close()
-        result = "保存しました"
-    return render(request, "work09/todo_list.html", {'result': result})
-
-#  データベース;
-#  テーブル:
-#  カラム:id,
+    return render(request, 'work09/todo_list.html', {'tasks': todo_list})
+#  データベース; work09
+#  テーブル: todo
+#  カラム: task_name,deadline,entry

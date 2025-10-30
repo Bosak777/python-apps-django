@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'sns_copy/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'sns_copy/style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar_left">
+            <h1>Photos</h1>
+            <div class="sidebar_nav">
+                <nav>
+                    <ul>
+                        <li class="sidebar_li"><a href="{% url 'home' %}">ホーム</a></li>
+                        <li class="sidebar_li"><a href="{% url 'search' %}">検索</a></li>
+                        <li class="sidebar_li"><a href="{% url 'notice' %}">通知</a></li>
+                        <li class="sidebar_li"><a href="#">プロフィール</a></li>
+                        <li class="sidebar_li"><a href="#">設定</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        
+        <!-- アイコン -->
+        <div class="Screen">
+            <div class="post-1">
+                <div class="follow">
+                    <div class="icon-1">
+                        <img class="icon-Free" src="{% static 'imges/Free.jpeg' %}" alt="log">
+                        <p class="name">名前unknown</p>
+                    </div>
+                    <button onclick="toggleFollow(this)"><P class="follow_text">フォロー</P></button>
+                </div>
+                <P class="now_theme">今日の思い出/お題</P>
+                <img class="Breakfast" src="{% static 'imges/Breakfast.webp' %}" alt="Breakfast">
+                <img class="Lunch" src="{% static 'imges/Lunch.webp' %}" alt="Lunch">
+                <img class="Dinner" src="{% static 'imges/Dinner.jpg' %}" alt="Dinner">
+                <div class="post-card">
+                    <div class="post-actions">
+                        <span class="like-icon">❤️</span>
+                        <span class="retweet-icon">🔄</span>
+                    </div>
+                </div>
+                <p class="now_theme">今日のテーマ</p>
+            </div>
+            <!-- ここに写真が入る３枚の写真に一枚のお題 -->
+            <!-- ハートとリポスト -->
+            <!-- これと同じものをもう一つ作る -->
+            <!-- アイコン -->
+            <div class="post-2">
+                <div class="follow">
+                    <div class="icon-2">
+                        <img class="Starrysky" src="{% static 'imges/Starrysky.webp' %}" alt="Starrysky">
+                        <p class="name">名前unknown</p>
+                    </div>
+                    <button onclick="toggleFollow(this)"><p class="follow_text">フォロー</p></button>
+                </div>
+                <P class="now_theme">今日の思い出/お題</P>
+                <img class="Spring" src="{% static 'imges/Spring.jpg' %}" alt="Spring">
+                <img class="Summer" src="{% static 'imges/Summer.webp' %}" alt="Summer">
+                <img class="autumn" src="{% static 'imges/autumn.jpg' %}" alt="autumn">
+                <img class="Aurora" src="{% static 'imges/Aurora.jpg' %}" alt="Aurora">
+                <div class="post-card">
+                    <div class="post-actions">
+                        <span class="like-icon">❤️</span>
+                        <span class="retweet-icon">🔄</span>
+                    </div>
+                </div>
+                <!--　ここに写真が入る４枚の写真に一枚のお題 -->
+                <!-- お題 -->
+                <p class="now_theme">今日のテーマ</p>
+                <img class="emoi" src="{% static 'imges/emoi.jpg' %}" alt="emoi">
+                <div class="post-card">
+                    <div class="post-actions">
+                        <span class="like-icon">❤️</span>
+                        <span class="retweet-icon">🔄</span>
+                    </div>
+                </div>
+            </div>
+            <!-- ハートとリパスト -->
+            <!-- 念の為もう一個同じものを作る -->
+            <!-- アイコン -->
+            <div class="post-3">
+                <div class="follow">
+                    <div class="icon-3">
+                        <img class="Sunset" src="{% static 'imges/Sunset.jpg' %}" alt="Sunset">
+                        <p class="name">名前unknown</p>
+                    </div>
+                    <button class="follow_btn" onclick="toggleFollow(this)">フォロー</button>
+                </div>
+                <p class="now_theme">今日の思い出/お題</p>
+                <img class="YourName" src="{% static 'imges/YourName.jpeg' %}" alt="YourName">
+                <img class="Weather" src="{% static 'imges/Weather.jpg' %}" alt="Weather">
+                <img class="beach" src="{% static 'imges/beach.webp' %}" alt="beach">
+                <div class="post-card">
+                    <div class="post-actions">
+                        <span class="like-icon">❤️</span>
+                        <span class="retweet-icon">🔄</span>
+                    </div>
+                </div>
+                <p class="now_theme">今日のテーマ</p>
+            </div>
+        </div>
+
+        <div class="sidebar_right">
+            <p class="odai_txt">本日のお題</p>
+            <div class="odai">
+                <p>今日の晩御飯</p>
+            </div>
+            <div class="btn_group">
+                <a href="#" class="tweet_btn">お題を投稿</a>
+                <a href="#" class="tweet_btn">今日の思い出を投稿</a>
+            </div>
+        </div>
+    </div>
+<script>
+    function toggleFollow(btn){
+        if(btn.innerText === "フォロー"){
+            btn.innerText = "フォロー中";
+            btn.style.backgroundColor = "#ccc";
+            btn.style.color = "#000";
+        } else {
+            btn.innerText = "フォロー";
+            btn.style.backgroundColor = "#000";
+            btn.style.color = "#fff";
+        }
+    }
+</script>
+
+    
+
+</body>
+
+</html>

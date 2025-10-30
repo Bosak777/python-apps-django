@@ -1,0 +1,252 @@
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.icon-Free {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.icon-1{
+  display: flex;
+  align-items: center;
+}
+
+.Starrysky {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.icon-2{
+  display: flex;
+  align-items: center;
+}
+.Sunset {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.icon-3{
+  display: flex;
+  align-items: center;
+}
+img{
+  width: 200px;
+  height: 200px;
+  margin-block: 2px;
+}
+.post-1{
+  border: 2px solid black;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 0 30px 50px 30px;
+}
+.post-2{
+  border: 2px solid black;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 0 30px 50px 30px;
+}
+.post-3{
+  border: 2px solid black;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 0 30px 50px 30px;
+}
+
+.follow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 50px;
+}
+
+button{
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 7px 18px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.follow_btn:hover{
+  background: #333;
+}
+
+.name {
+  margin-left: 20px;
+}
+
+.post-card {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  justify-content: space-between;
+  margin-block-end: 18px;
+}
+
+.post-actions{
+  display: flex;
+  gap: 15px;
+  align-self: flex-start;
+}
+
+.like-icon:hover{
+  background-color: #FF367F;
+}
+.retweet-icon:hover{
+  background-color: #D3D3D3	;
+}
+.Aurora img img{
+  /* background-color: #FF367F; */
+  display: block;
+  margin-block: 24px;
+}
+.now_theme{
+  margin-block-start: 25px;
+}
+
+
+
+
+/* ここからがサイドバー */
+.container {
+  display: flex;
+  height: 100vh;
+}
+.filter{
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  z-index: 100;
+
+}
+.sidebar_left {
+  width: 300px;
+  /* background-color: yellow; */
+  border-right: 1px solid #d3d3d3;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.sidebar_right {
+  width: 300px;
+  /* background-color: lightblue; */
+  border-left: 1px solid #d3d3d3;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+}
+/* ここが真ん中 */
+.center {
+  justify-content: center;
+  flex: 1;
+  /* background-color: rgb(234, 22, 22); */
+  overflow-y: auto;
+  z-index: 1;
+}
+
+.filter{
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 15px 20px;
+  position: sticky;
+  /* position: fixed; */
+  top: 0;
+  background-color: #fff;
+  margin: 10px;
+}
+
+h1 {
+  font-size: 20px;
+  padding: 15px;
+}
+
+.sidebar_nav {
+  font-size: 32px;
+  margin: 10px 2px;
+  display: flex;
+  flex-direction: scroll;
+}
+
+.sidebar_li {
+  margin: 100px 0;
+}
+
+.sidebar_li a {
+  padding: 10px 20px;
+}
+
+.sidebar_li a:hover {
+  background-color: #d3d3d3;
+  border-radius: 40px;
+}
+
+.odai_txt {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  margin: 40px 0;
+}
+
+.odai {
+  display: inline-block; /* コンテンツ幅に縮む */
+  font-size: 24px;
+  padding: 65px 60px;
+  background-color: #fbf7f7;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  text-align: center; /* 内側のテキストも中央 */
+}
+
+.btn_group {
+  margin-top: 250px;
+  border-top: 1px solid #d3d3d3;
+}
+
+.tweet_btn {
+  padding: 10px 20px;
+  margin: 30px 0;
+  font-size: 24px;
+  display: inline-block;
+  background-color: #000;
+  color: #fff;
+  border-radius: 20px;
+}
+
+.tweet_btn:hover {
+  background-color: #555;
+}
+
+/* メイン */
+.filter {
+  display: flex;
+  justify-content: center; /* 均等配置ではなく中央寄せでも０K */
+  font-size: 32px;
+  width: 100%;
+  border-bottom: 1px solid #d3d3d3;
+  z-index: 1000;
+}
+
+.filter a {
+  padding: 5px 200px;
+  text-decoration: none;
+  color: black;
+
+}
+
+.filter .follow_btn {
+  border-left: 2px solid #d3d3d3; /* 👈左に線を追加 */
+}
+.Screen{
+  overflow-y: auto;
+}
