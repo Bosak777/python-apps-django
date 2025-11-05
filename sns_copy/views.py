@@ -13,3 +13,7 @@ def notice(request):
 
 def search(request):
     return render(request, "sns_copy/search.html")
+
+
+def profile(request):
+    return render(request, "sns_copy/profile.html")
