@@ -82,8 +82,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'python_apps_django.wsgi.application'
 
+
+# ALLOWED HOSTS CSRF_TRUSTED_ORIGINS を設定
+# deploy setting for Railway
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = (os.environ.get("ALLOWED_HOSTS") or "").split(",")  
+# deploy for Railway
+CSRF_TRUSTED_ORIGINS = (
+    os.environ.get("CSRF_TRUSTED_ORIGINS") or "").split(",")
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
@@ -94,16 +101,16 @@ DATABASE_USER = os.environ.get("DB_USER")
 DATABASE_PASSWORD = os.environ.get("DB_PASSWORD")
 DATABASE_PORT = os.environ.get("DB_PORT") or "3306"
 # データベース接続設定
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.mysql",
-#         "NAME": DATABASE_NAME,
-#         "USER": DATABASE_USER,
-#         "PASSWORD": DATABASE_PASSWORD,
-#         "HOST": DATABASE_HOST,
-#         "PORT": DATABASE_PORT,
-#     }
-# }
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": DATABASE_NAME,
+        "USER": DATABASE_USER,
+        "PASSWORD": DATABASE_PASSWORD,
+        "HOST": DATABASE_HOST,
+        "PORT": DATABASE_PORT,
+    }
+}
 
 DATABASES = {
     'default': {
