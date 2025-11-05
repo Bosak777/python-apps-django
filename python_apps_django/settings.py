@@ -56,6 +56,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # ここを追加
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -87,7 +88,7 @@ WSGI_APPLICATION = 'python_apps_django.wsgi.application'
 # deploy setting for Railway
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ["*"]
-ALLOWED_HOSTS = (os.environ.get("ALLOWED_HOSTS") or "").split(",")  
+ALLOWED_HOSTS = (os.environ.get("ALLOWED_HOSTS") or "").split(",")
 # deploy for Railway
 CSRF_TRUSTED_ORIGINS = (
     os.environ.get("CSRF_TRUSTED_ORIGINS") or "").split(",")
@@ -159,7 +160,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_DIRS = [BASE_DIR / "portfolio" / "static"]
+# WhiteNoise configuration for serving static files in production
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+
+# setup basicauth middleware
+# if os.environ.get("ENABLE_BASIC_AUTH") or "false" == "true":
+#     MIDDLEWARE.append("basicauth.middleware.BasicAuthMiddleware")
+#     BASICAUTH_USERS = {
+#         os.environ.get("BASIC_AUTH_USERNAME"):
+# os.environ.get("BASIC_AUTH_PASSWORD"),
+#     }
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
