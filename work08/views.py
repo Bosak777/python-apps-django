@@ -26,7 +26,7 @@ def memo(request):
     cursor = conn.cursor(dictionary=True)
 
     # メモタイトルを取得
-    cursor.execute("SELECT id, title FROM memo ORDER BY id DESC")
+    cursor.execute("SELECT id, title FROM work08_memo ORDER BY id DESC")
     memos = cursor.fetchall()
 
     cursor.close()
@@ -44,7 +44,8 @@ def add_memo(request):
         content = request.POST.get("content")
 
         conn = mysql.connector.connect(
-            host="localhost", user="root", password="bosaklong", database="work08"
+            host="localhost", user="root", password="bosaklong",
+            database="work08"
         )
         # カーソル作成
         cursor = conn.cursor()
