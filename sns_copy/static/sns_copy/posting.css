@@ -7,8 +7,3 @@ body {
     height: 200px;
     width: 200px;
 }
-.photo{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
