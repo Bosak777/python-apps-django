@@ -3,7 +3,7 @@ body {
   font-family: "Hiragino Sans", "Meiryo", sans-serif;
   height: 100%;
 }
-h1 img {
+.camera h1  {
     width: 110px;
     height: 140px;
 }
