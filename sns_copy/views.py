@@ -17,3 +17,7 @@ def search(request):
 
 def profile(request):
     return render(request, "sns_copy/profile.html")
+
+
+def posting(request):
+    return render(request, "sns_copy/posting.html")
