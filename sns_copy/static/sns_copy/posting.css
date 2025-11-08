@@ -20,6 +20,7 @@ body {
 }
 .photo{
     display: flex;
+    flex-wrap: wrap;
     font-size: 12px;
     gap: 20px;
 }
