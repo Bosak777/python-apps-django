@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     "work08",
     "work09",
     'sns',
-    "sns_copy",
+    # "sns_copy",
 ]
 
 MIDDLEWARE = [
