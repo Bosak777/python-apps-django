@@ -45,4 +45,8 @@ urllib3==2.5.0
 wcwidth==0.2.13
 whitenoise==6.11.0
 mysqlclient
+django
+mysqlclient
+gunicorn
+whitenoise
 
