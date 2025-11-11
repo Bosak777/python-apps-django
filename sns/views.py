@@ -4,20 +4,20 @@ from django.shortcuts import render
 
 
 def home(request):
-    return render(request, "sns_copy/home.html")
+    return render(request, "sns/home.html")
 
 
 def notice(request):
-    return render(request, "sns_copy/notice.html")
+    return render(request, "sns/notice.html")
 
 
 def search(request):
-    return render(request, "sns_copy/search.html")
+    return render(request, "sns/search.html")
 
 
 def profile(request):
-    return render(request, "sns_copy/profile.html")
+    return render(request, "sns/profile.html")
 
 
 def posting(request):
-    return render(request, "sns_copy/posting.html")
+    return render(request, "sns/posting.html")
