@@ -26,8 +26,8 @@ urlpatterns = [
     path('top_page/', include('top_page.urls')),
     path('work08/', include('work08.urls')),
     path('work09/', include('work09.urls')),
-    # path('sns/', include('sns.urls')),
-    path('sns_copy/', include('sns_copy.urls')),
+    path('sns/', include('sns.urls')),
+    # path('sns_copy/', include('sns_copy.urls')),
 
 
 

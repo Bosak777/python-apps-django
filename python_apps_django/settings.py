@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     "top_page",
     "work08",
     "work09",
-    # 'sns',
+    'sns',
     "sns_copy",
 ]
 
