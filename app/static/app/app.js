@@ -10,13 +10,13 @@ cards.forEach(card => {
 document.addEventListener('click', function(event){
     console.log('クリックした要素:',event.target);
 });
-// document.addEventListener('click', function(event){
-//     const clickedBackImage = event.target;
-//     // クリックされたのが裏面の画像要素か確認
-//     if (!clickedBackImage.classList.contains('card-back')){
-//         return;  //対象外なら終了
-//     }
-// })
+document.addEventListener('click', function(event){
+    const clickedBackImage = event.target;
+    // クリックされたのが裏面の画像要素か確認
+    if (!clickedBackImage.classList.contains('card-back')){
+        return;  //対象外なら終了
+    }
+})
 // // クリックされた要素(裏面の画像要素)
 // const clickedBackImage = event.target;
 // // 裏面の画像要素を親要素(div class="back")を取得
