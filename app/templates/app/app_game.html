@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'app/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'app/app.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>神経衰弱</title>
+</head>
+
+<body>
+    <p>神経衰弱の難易度を選んでください</p>
+    <div class="difficulty-selection">
+        <a href="{% url 'easy_game' %}">簡単</a>
+        <a href="{% url 'normal_game' %}">普通</a>
+        <a href="{% url 'hard_game' %}">難しい</a>
+    </div>
+</body>

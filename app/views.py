@@ -1,0 +1,35 @@
+from django.shortcuts import render
+import os
+import random
+# Create your views here.
+
+
+def easy_game(request):
+    # 静的カード画像フォルダのパス
+    card_dir = "app/static/cards"
+
+    # cardBack 以外のpngファイル（トランプ画像）だけ取得
+    all_cards = [
+        f for f in os.listdir(card_dir)
+        if f.endswith(".png") and "back" not in f
+    ]
+
+    # 10種類ランダムに選ぶ
+    selected = random.sample(all_cards, 10)
+
+    # 各かーどを2枚にして20枚にする
+    cards = selected * 2
+
+    return render(request, "app/easy_game.html", {"cards": cards})
+
+
+def app_game(request):
+    return render(request, "app/app_game.html")
+
+
+def normal_game(request):
+    return render(request, "app/normal_game.html")
+
+
+def hard_game(request):
+    return render(request, "hard_game.html")
