@@ -15,10 +15,10 @@
     {% for card in cards %}
     <div class="card" data-card="{{card}}">
         <div class="card-inner">
-            <div id="front" class="card-front">
+            <div class="card-front">
                 <img class="front" src="{% static 'cards/' %}{{ card }}">
             </div>
-            <div id="back" class="card-back">
+            <div class="card-back">
                 <img class="back" src="{% static 'cards/card_back.png' %}">
             </div>
         </div>

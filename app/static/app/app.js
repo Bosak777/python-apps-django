@@ -1,16 +1,77 @@
 const cards = document.querySelectorAll(".card");
 
+// カードをランダムに配置
 cards.forEach(card => {
-    card.addEventListener("click", function(e){
-        this.classList.toggle("is-flipped");
-        // 同じdivの次の要素をとる
-        // クリックされた要素（img.backなど)
-        const clicked = e.target;
-        // このカードを取得
-        const cardInner = clicked.closest(".card-inner");
-        // 同じカード内のfrontとbackを取得
-        const frontImg = cardInner.querySelector(".front");
-        console.log("front:", frontImg.src);
-    });
+    const randomRotation = Math.random() * 10 - 5; // -5度～+5度のランダムな回転
+    card.style.transform = `rotate(${randomRotation}deg)`;
 });
 
+let firstCard = null;
+let secondCard = null;
+let lockBoard = false; // true の間は他のカードをクリックできない
+
+function resetTurn() {
+    firstCard = null;
+    secondCard = null;
+    lockBoard = false;
+}
+
+cards.forEach(card => {
+    card.addEventListener("click", function (e) {
+        if (lockBoard) return; // 解決中はクリック無効
+        if (this.classList.contains('matched')) return; // 既に揃っているカードは無視
+        // 同じカードを2回連続で選ぶのを防ぐ
+        if (this === firstCard) return;
+
+        this.classList.add("is-flipped");
+
+        // クリックされたカードの front 画像を取得（ログ用）
+        const cardInner = this.querySelector(".card-inner");
+        const frontImg = this.querySelector(".front");
+        if (frontImg) console.log("front:", frontImg.src);
+
+        if (!firstCard) {
+            // 1枚目選択
+            firstCard = this;
+            return;
+        }
+
+        // 2枚目選択
+        secondCard = this;
+        // 2枚選択されたのでボードをロックして他を選べなくする
+        lockBoard = true;
+
+        const firstSrc = firstCard.querySelector('.front')?.src;
+        const secondSrc = secondCard.querySelector('.front')?.src;
+
+        const handleMatch = () => {
+            // 揃った場合: matched クラスを付与してクリック不可にする
+            firstCard.classList.add('matched');
+            secondCard.classList.add('matched');
+            firstCard.style.pointerEvents = 'none';
+            secondCard.style.pointerEvents = 'none';
+
+            // マッチしたカードだけを光らせる（隣のカードは光らせない）
+            firstCard.classList.add('glow');
+            secondCard.classList.add('glow');
+
+            // リセット（ハイライトは消さずに保持）
+            resetTurn();
+        };
+
+        const handleMismatch = () => {
+            // 外れた場合: 1.5秒待ってから裏返す
+            setTimeout(() => {
+                firstCard.classList.remove('is-flipped');
+                secondCard.classList.remove('is-flipped');
+                resetTurn();
+            }, 1500);
+        };
+
+        if (firstSrc && secondSrc && firstSrc === secondSrc) {
+            handleMatch();
+        } else {
+            handleMismatch();
+        }
+    });
+});
