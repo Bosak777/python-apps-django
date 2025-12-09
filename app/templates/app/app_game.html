@@ -11,10 +11,18 @@
 </head>
 
 <body>
-    <p>神経衰弱の難易度を選んでください</p>
-    <div class="difficulty-selection">
-        <a href="{% url 'easy_game' %}">簡単</a>
-        <a href="{% url 'normal_game' %}">普通</a>
-        <a href="{% url 'hard_game' %}">難しい</a>
+    <div class="container">
+        <h1>🎮 神経衰弱</h1>
+        <p class="subtitle">難易度を選んでゲームを開始しよう！</p>
+
+        <div class="difficulty-selection">
+            <a href="{% url 'easy_game' %}">⭐ 簡単</a>
+            <a href="{% url 'normal_game' %}">⭐⭐ 普通</a>
+            <a href="{% url 'hard_game' %}">⭐⭐⭐ 難しい</a>
+        </div>
+
+        <div class="footer">
+            <p>同じ画像のペアを探してすべて揃えよう！</p>
+        </div>
     </div>
 </body>

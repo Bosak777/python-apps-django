@@ -28,8 +28,34 @@ def app_game(request):
 
 
 def normal_game(request):
-    return render(request, "app/normal_game.html")
+    # 静的カード画像フォルダのパス
+    card_dir = "app/static/cards"
+    # cardBck 以外のpngファイル（トランプ画像）だけ取得
+    all_cards = [
+        f for f in os.listdir(card_dir)
+        if f.endswith(".png") and 'back' not in f
+    ]
+    # 18種類ランダムに選ぶ
+    selected = random.sample(all_cards, 18)
+
+    # 各カードを2枚にして36枚にする
+    cards = selected * 2
+
+    return render(request, "app/normal_game.html", {'cards': cards})
 
 
 def hard_game(request):
-    return render(request, "hard_game.html")
+    # 静的カード画像フォルダのパス
+    card_dir = "app/static/cards"
+    # cardBck 以外のpngファイル（トランプ画像）だけ取得
+    all_cards = [
+        f for f in os.listdir(card_dir)
+        if f.endswith(".png") and 'back' not in f
+    ]
+    # 26種類ランダムに選ぶ
+    selected = random.sample(all_cards, 26)
+
+    # 各カードを2枚にして52枚にする
+    cards = selected * 2
+
+    return render(request, "app/hard_game.html", {'cards': cards})

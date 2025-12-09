@@ -9,3 +9,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>難しい・神経衰弱</title>
 </head>
+
+<body>
+    <h1>神経衰弱・難しいモード</h1>
+    {% for card in cards %}
+    <div class="card" data-card="{{card}}">
+        <div class="card-inner">
+            <div class="card-front">
+                <img class="front" src="{% static 'cards/' %}{{ card }}">
+            </div>
+            <div class="card-back">
+                <img class="back" src="{% static 'cards/card_back.png' %}">
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+    </div>
+    <!-- js読み込み -->
+    <script src="{% static 'app/app.js' %}"></script>
+</body>
