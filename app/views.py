@@ -59,3 +59,7 @@ def hard_game(request):
     cards = selected * 2
 
     return render(request, "app/hard_game.html", {'cards': cards})
+
+
+def game_clear(request):
+    return render(request, "app/game_clear.html")

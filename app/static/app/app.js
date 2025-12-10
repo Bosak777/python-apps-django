@@ -1,5 +1,21 @@
 const cards = document.querySelectorAll(".card");
 
+// ゲーム開始時刻をセッションストレージに保存
+if (!sessionStorage.getItem('gameStartTime')) {
+    sessionStorage.setItem('gameStartTime', Date.now());
+}
+
+// 難易度を判定して保存
+function detectDifficulty() {
+    const cardCount = cards.length;
+    if (cardCount === 20) return 'easy';
+    if (cardCount === 36) return 'normal';
+    if (cardCount === 48) return 'hard';
+    return 'unknown';
+}
+
+sessionStorage.setItem('gameDifficulty', detectDifficulty());
+
 // カードをランダムに配置
 cards.forEach(card => {
     const randomRotation = Math.random() * 10 - 5; // -5度～+5度のランダムな回転
@@ -14,6 +30,17 @@ function resetTurn() {
     firstCard = null;
     secondCard = null;
     lockBoard = false;
+}
+
+// ゲーム完了判定
+function checkGameClear() {
+    const matchedCards = document.querySelectorAll(".card.matched");
+    if (matchedCards.length === cards.length) {
+        // すべてのカードが揃った
+        setTimeout(() => {
+            window.location.href = "/app/game_clear/";
+        }, 500);
+    }
 }
 
 cards.forEach(card => {
@@ -57,6 +84,9 @@ cards.forEach(card => {
 
             // リセット（ハイライトは消さずに保持）
             resetTurn();
+            
+            // ゲーム完了判定
+            checkGameClear();
         };
 
         const handleMismatch = () => {
